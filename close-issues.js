@@ -21,7 +21,7 @@ async function main (args) {
   const [ label, messageFile ] = args
   const message = await readFile(messageFile, 'utf8')
 
-  await fun(process.stdin).filter(id => id !== '').map(id => Number(id)).forEach(async id => {
+  await fun(process.stdin).lines().filter(id => id !== '').map(id => Number(id)).forEach(async id => {
     await github.issues.addLabels({
       owner: 'SocialStrata',
       repo: 'crowdstack-pro',
