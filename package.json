@@ -10,9 +10,9 @@
   "author": "Rebecca Turner <me@re-becca.org> (http://re-becca.org/)",
   "license": "ISC",
   "dependencies": {
+    "@octokit/rest": "^18.5.2",
     "bluebird": "^3.5.0",
-    "funstream": "file:../funstream",
-    "github": "^9.2.0",
+    "funstream": "^4.2.0",
     "moment": "^2.18.1",
     "ndjson": "^1.5.0",
     "signal-exit": "^3.0.2",
