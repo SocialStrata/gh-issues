@@ -21,25 +21,25 @@ async function main (args) {
   const [ label, messageFile ] = args
   const message = await readFile(messageFile, 'utf8')
 
-  await fun(process.stdin).pipe(split()).filter(id => id !== '').map(id => Number(id)).forEach(async id => {
+  await fun(process.stdin).filter(id => id !== '').map(id => Number(id)).forEach(async id => {
     await github.issues.addLabels({
-      owner: 'npm',
-      repo: 'npm',
-      number: id,
+      owner: 'SocialStrata',
+      repo: 'crowdstack-pro',
+      issue_number: id,
       labels: [ label ]
     })
     await sleep(4000)
     await github.issues.createComment({
-      owner: 'npm',
-      repo: 'npm',
-      number: id,
+      owner: 'SocialStrata',
+      repo: 'crowdstack-pro',
+      issue_number: id,
       body: message
     })
     await sleep(4000)
-    await github.issues.edit({
-      owner: 'npm',
-      repo: 'npm',
-      number: id,
+    await github.issues.update({
+      owner: 'SocialStrata',
+      repo: 'crowdstack-pro',
+      issue_number: id,
       state: 'closed',
     })
     console.log(id)
